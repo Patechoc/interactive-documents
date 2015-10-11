@@ -1,0 +1,19 @@
+{% set f = form['add'] %}
+<form method=post action="">
+  {{ f['a'](size=3)|safe }} +
+  {{ f['a'](size=3)|safe }} =
+  {{ f['add'](size=3)|safe }}
+
+  {% for field in f: %}
+    {% for error in field.errors %}
+     {{ error }}
+    {% endfor %}
+  {% endfor %}
+  &nbsp;&nbsp;
+  <input type="submit" name="btn" value="Check addition"
+   class="btn-sm btn-primary"></form>
+<p>
+{% if result['add'] != None %}
+{{ result['add'] }}
+{% endif %}
+</p>

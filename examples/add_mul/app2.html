@@ -1,0 +1,18 @@
+{% set f = form['mul'] %}
+<form method=post action="">
+  {{ f['p'](size=3)|safe }} *
+  {{ f['q'](size=3)|safe }} =
+  {{ f['mul'](size=3)|safe }}
+  {% for field in f: %}
+    {% for error in field.errors %}
+     {{ error }}
+    {% endfor %}
+  {% endfor %}
+  &nbsp;&nbsp;
+  <input type="submit" name="btn" value="Check multiplication"
+   class="btn-sm btn-primary"></form>
+<p>
+{% if result['mul'] != None %}
+{{ result['mul'] }}
+{% endif %}
+</p>
