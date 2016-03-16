@@ -9,7 +9,7 @@ with flask.
    se `examples/add_mul`.
  * A not-yet-working example on how to embed *interactive*
    bokeh plots on bokeh-servers in a flask app (`examples/bokeh_sliders`).
-
+ * A working example on how to embed *interactive* bokeh apps using a bokeh-server, and the bokeh (0.11.1) autoload_server ( examples/sliding_ball )
 ## Goal
 
 The goal of this project is to establish recipes such that DocOnce
