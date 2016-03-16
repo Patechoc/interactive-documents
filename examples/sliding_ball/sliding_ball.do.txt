@@ -1,0 +1,25 @@
+===== Exercise: Particle motion along a semicircle =====
+
+FIGURE:[fig/motion_transparent, width=300, frac=0.4] label{fig:motion}
+
+#This exercise focuses on a solitary wave propagating on water.
+## #if FORMAT == 'html'
+#"(PDF-version)": "http://folk.ntnu.no/fredf/teaching/tkt4140/exercises/mix/mix1/mix1.pdf"
+## #endif
+
+Figure ref{fig:motion} show a particle with mass $m$ which can slide on the surface of 
+the semicircle with radius $R$. The coefficient of friction, $\mu$ is constant. 
+The particle is dropped at $\theta = 0$ with the angular velocity ($\theta '$) being zero. 
+Applying Newton's law in the tigantial-direction we get:
+
+!bt
+\begin{align}
+\frac{d^2 \theta}{d t^2} = + \frac{g}{r}\left(cos \theta - \mu sin \theta\right)
+label{eq:motion}
+\end{align}
+!et
+
+The equation is valid for $0 \leq \theta \geq 180$. The assignment is to find the value of 
+$\mu$ which make the particle stop at the lowest point of the semicircle ($\theta=90^o=\pi/2 \, rad$)
+
+APP: [sliding_ball]
