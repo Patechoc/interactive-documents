@@ -64,9 +64,9 @@ plot.line(-np.cos(theta_line), -np.sin(theta_line), line_width=2)
 # Set up widgets
 titlevalue = 'ball sliding along semicircle, angle='
 mu = Slider(title="mu", value=0.0, start=0, end=1, step=0.1)
-tau = Slider(title="tau", value=0.0, start=0, end=10.0, step=0.1)
+tau = Slider(title="tau", value=0.0, start=0, end=20.0, step=0.1)
 
-
+dtau = tau.step
 # Set up callbacks
 
 def update_data(attrname, old, new):
@@ -74,7 +74,6 @@ def update_data(attrname, old, new):
     # Get the current slider values
     mu_v = mu.value
     tau_v = tau.value
-    dtau = 0.1
     N = round(tau_v/dtau)
     mu_str = str(mu_v)
     if mu_str =='1':

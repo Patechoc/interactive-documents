@@ -14,12 +14,42 @@ Applying Newton's law in the tigantial-direction we get:
 
 !bt
 \begin{align}
-\frac{d^2 \theta}{d t^2} = + \frac{g}{r}\left(cos \theta - \mu sin \theta\right)
+\frac{d^2 \theta}{d t^2} = -\mu \left(\frac{d \theta}{d t}\right)^2 + \frac{g}{r}\left(cos \theta - \mu sin \theta\right)
 label{eq:motion}
 \end{align}
 !et
 
-The equation is valid for $0 \leq \theta \geq 180$. The assignment is to find the value of 
-$\mu$ which make the particle stop at the lowest point of the semicircle ($\theta=90^o=\pi/2 \, rad$)
+By using the dimensionless time $\tau = \sqrt \frac{g}{R}$ Eq (ref{eq:motion}) can be written as:
+
+!bt
+\begin{align}
+\frac{d^2 \theta}{d \tau^2} = -\mu \left(\frac{d \theta}{d \tau}\right)^2 +cos \theta - \mu sin \theta
+label{eq:motion_dimless}
+\end{align}
+!et
+
+note that the friction force always work in the direction opposite to the direction of motion. 
+Thus if $\frac{d \theta}{d \tau} \leq 0$ the governing equation is:
+
+!bt
+\begin{align}
+\frac{d^2 \theta}{d \tau^2} = \mu \left(\frac{d \theta}{d \tau}\right)^2 + cos \theta + \mu sin \theta
+label{eq:motion_dimless_negative}
+\end{align}
+!et
+
+The equation is valid for $0 \leq \theta \leq 180$. The assignment is to find the values of 
+$\mu$ which make the particle turn and stop at certain $\theta$-values ($\theta_{turn}$, and $\theta_{stop}$).
 
 APP: [sliding_ball]
+
+label{app:sliding_ball}
+
+=== Pen and paper ===
+The following problems should be done using pen and paper: <linebreak>
+_a_) Explain how you would find the value of $\mu$ which makes the ball turn at $\theta_{turn}=120^o=\frac{2}{3}\pi \, rad$, using shooting technique. What is the value of $\frac{d \theta}{d \tau}$ when the ball turns? Write Eq. (ref{eq:motion}) as a system of 1st order ODE's, and set up the $\phi$-function.
+
+_a_) Explain how you would find the value of $\mu$ which makes the ball stop at $\theta_{stop}=100^o=\frac{2}{3}\pi \, rad$, using shooting technique. Write Eq. (ref{eq:motion_dimless}) and (ref{eq:motion_dimless_negative}) as a system of 1st order ODE's, and set up the $\phi$-function.
+
+=== Programing ===
+write python programs that solves _a_) and _b_) numerically. use the the _bokeh_ app to find appropriate starting values for $\mu$
