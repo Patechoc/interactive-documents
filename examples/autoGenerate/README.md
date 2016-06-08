@@ -1,21 +1,29 @@
-First example on how one could auto-generate an interactive bokeh plot from a doconce tag IBPLOT:[plot info]
+# Sliding ball along semicircle with friction
 
-This is not yet coupled with doconce, but is a first example/test on how auto-generating bokeh-plots from info in a line in a .do.txt file.
+Example on how to embed a bokeh slider by running a bokeh server (requires bokeh 0.11.1).
+The app is embeded with a html template "sliding_ball.html".
 
-1) Create the app by running:
+To see the embeded html page do as follows (in this directory):
 
-bokeh serve --show generatFromFile.py
+1) compile the html template "sliding_ball.html" (requires doconce):
 
-2) A browser should now open showing the app:
+doconce format html template.do.txt
 
-3) Out-comment one of the other IBPLOT tags in IBPLOT.do.txt, and comment out all other to generate a different plot. Run command 1) again to generate a new app.
+2) start a bokeh server:
 
-3) Write a new line for a different curve in IBPLOT.do.txt and test
+bokeh serve --allow-websocket-origin=localhost:8000
 
-the syntax is:
+3) embed the app by running:
 
-IBPLOT:[y=f(x, var1, var2, ..);x='x';xrange=(start, stop);,yrange=(start, stop),sliders=dict(var1="title='var1', value=first_value_of_Var1, start=min_value, end=max_value", var2="title='var2', value=1, start=0.1, end=2")]
+python sliding_ball_embed_sliders.py
 
+4) link the page to the url "http://localhost:8000/embed_template.html"
+
+python -m SimpleHTTPServer
+
+Now navigate to the local url: "http://localhost:8000/embed_template.html"
+
+in your browser.
 
 
 

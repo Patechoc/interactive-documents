@@ -1,0 +1,12 @@
+
+
+#IBPLOT:[y = b + a*x**c; x='x'; xrange=(0, 5); yrange=(-10, 10); sliders=dict(b="title='intersect', value=0, start=-5, end=5", a="title='inclination', value=0, start=-5, end=5", c="title='power', value=0, start=-2, end=2")]
+
+#IBPLOT:[y = x*(1 + (P/2.)*(1 - x)); x='x'; xrange=(0, 1); yrange=(-.5, 1.5); sliders=dict(P="title='Pressure', value=0, start=-5, end=5")]
+
+IBPLOT:[y = a**2*x/(x**2 + a*b); x='x'; xrange=(-3, 3); yrange=(-1, 1); sliders=dict(a="title='a', value=1, start=0.1, end=2", b="title='b', value=1, start=0.1, end=2");title='yolo']
+
+
+#IBPLOT:[y=[a**2*x/(x**2 + a*b), b + a*x**c]; x='x'; xrange=(-3, 3); yrange=(-1, 1); sliders=[dict(a="title='a', value=1, start=0.1, end=2", b="title='b', value=1, start=0.1, end=2"), dict(b="title='intersect', value=0, start=-5, end=5", a="title='inclination', value=0, start=-5, end=5", c="title='power', value=0, start=-2, end=2")]]
+
+
