@@ -6,7 +6,7 @@ In this first example two processes are needed; first compile the template using
 
 NB! For now, there should be only one tag in the template. This will be fixed later
 
-IBPLOT:[y = a**2*x/(x**2 + a*b); x='x'; xrange=(-3, 3); yrange=(-1, 1); sliders=dict(a="title='a', value=1, start=0.1, end=2", b="title='b', value=1, start=0.1, end=2");title='yolo']
+IBPLOT:[y = a**2*x/(x**2 + a*b); x='x'; xrange=(-3, 3); yrange=(-1, 1); sliders=dict(a="title='a', value=1, start=0.1, end=2", b="title='b', value=1, start=0.1, end=2");title='serpentine']
 
 
 
