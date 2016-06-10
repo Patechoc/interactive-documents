@@ -14,7 +14,8 @@ function system {
 
 name=template
 
-doconce format html $name --pygments_html_style=default SLIDE_TYPE=reveal SLIDE_THEME=simple
-doconce slides_html $name reveal --html_slide_theme=simple
-#compile $name 
-#--keep_pygments_html_bg
+doconce format html $name
+
+#doconce format html $name --pygments_html_style=default SLIDE_TYPE=reveal SLIDE_THEME=simple
+#doconce slides_html $name reveal --html_slide_theme=simple
+
