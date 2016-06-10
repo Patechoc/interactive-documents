@@ -1,0 +1,31 @@
+TITLE: Test IBPLOT tags and bokeh apps embeded in a html document
+AUTHOR: Fredrik Eikeland Fossan
+DATE: today
+
+
+!split
+=== Straight line ===
+
+IBPLOT:[y=a*x + b; xrange=(0, 3); yrange=(-10, 10); sliderDict=dict(b="title='b', value=0, start=-5, end=5", a="title='a', value=0, start=-5, end=5"); title='linear curve';legend='y=a*x + b']
+
+
+!split
+=== Serpentine ===
+
+IBPLOT:[y = a**2*x/(x**2 + a*b); x_axis_label='x'; y_axis_label='y'; xrange=(-3, 3); yrange=(-1, 1); sliderDict=dict(a="title='a', value=1, start=0.1, end=2", b="title='b', value=1, start=0.1, end=2"); legend='y=a^2*x/(x^2 + a*b)'; title='serpentine']
+
+
+!split
+
+=== Couette flow with pressuregradient ===
+
+IBPLOT:[y = x*(1 + (P/2.)*(1 - x)); x_axis_label='u'; y_axis_label='y'; xrange=(-0.5, 1.5); yrange=(0, 1); sliderDict=dict(P="title='Pressure', value=0, start=-5, end=5"); title='couette flow'; reverseAxes=True]
+
+!split
+
+=== Multiple lines ===
+
+IBPLOT:[y=[a*x**c + b, a*x + b]; x_axis_label='x'; y_axis_label='y'; xrange=(0, 3); yrange=(-10, 10); sliderDict=dict(b="title='b', value=0, start=-5, end=5", a="title='a', value=0, start=-5, end=5", c="title='c', value=0, start=-2, end=2");legend=['y = a*x^c + b', 'y = a*x + b']; title='double']
+
+
+
