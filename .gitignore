@@ -34,3 +34,8 @@ sphinx-rootdir
 *.project
 # misc:
 .DS_Store
+Trash
+sphinx-rootdir
+.*.exerinfo
+.*.copyright
+.*html_file_collection

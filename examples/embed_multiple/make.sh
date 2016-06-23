@@ -13,4 +13,4 @@ python Main.py &
 
 python -m SimpleHTTPServer &
 
-echo "Navigate to: http://localhost:8000/embed_"+$Template+".html"
+echo "Navigate to: http://localhost:8000/embed_$Template.html"

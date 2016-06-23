@@ -22,9 +22,9 @@ IBPLOT_tags = find_tags(file_name + ".html")
 appLayoutList = []
 
 for app_info in IBPLOT_tags:
-    
+
     app = CreateApp(app_info)
-    
+
     for w in app.sliderList:
         w.on_change('value', app.update_data)
 
@@ -49,12 +49,12 @@ for line in f1:
         f2.write("</p>")
         f2.write(autoload_server(appLayoutList[appNumber], session_id=session.id))
         appNumber += 1
-        
+
     else:
         f2.write(line)
 f1.close()
 f2.close()
-    
+
 
 
 document.add_root(layout)
