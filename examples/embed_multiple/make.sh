@@ -2,10 +2,8 @@
 
 Template=template
 #code=embed.py
-code=Main.py
 
 doconce format html $Template
-
 
 bokeh serve --allow-websocket-origin=localhost:8000 &
 
