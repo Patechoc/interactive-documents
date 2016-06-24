@@ -36,7 +36,7 @@ for app_info in IBPLOT_tags:
 
 # embed app in html template
 old_file = file_name + ".html"
-new_file = "embed_" + file_name +".html"
+new_file = "embed_" + file_name + ".html"
 f1 = open(old_file, "r")
 f2 = open(new_file, "w+")
 
@@ -60,5 +60,5 @@ f2.close()
 document.add_root(layout)
 
 if __name__ == "__main__":
-    print "runnign on: http://localhost:8000/" + new_file
+    print "running on: http://localhost:8000/" + new_file
     session.loop_until_closed()
