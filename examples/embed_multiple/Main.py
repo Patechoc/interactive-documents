@@ -15,7 +15,7 @@ from SetupApp import CreateApp
 document = Document()
 session = push_session(document)
 
-file_name = "template"
+file_name = "demo"
 
 IBPLOT_tags = find_tags(file_name + ".html")
 

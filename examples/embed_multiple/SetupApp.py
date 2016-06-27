@@ -15,7 +15,7 @@ in your browser.
 
 '''
 import numpy as np
-
+import inspect
 from bokeh.plotting import Figure
 from bokeh.models import ColumnDataSource, HBox, VBoxForm
 from bokeh.models.widgets import Slider, TextInput
@@ -31,6 +31,20 @@ class CreateApp():
         possible_inputs = ['x_axis_label', 'xrange', 'yrange', 'sliderDict', 'title', 'number_of_graphs']
 
         y = None
+        if ".py" in plot_info[0]:
+            print "handling .pyfile"
+            compute = None
+            exec("from " + plot_info[0][0:-3] + " import compute")
+            arg_names = inspect.getargspec(compute).args
+            argString = ""
+            for n, arg in enumerate(arg_names):
+                argString = argString + arg
+                if n != len(arg_names) - 1:
+                    argString = argString + ", "
+            computeString = "y = compute(" + argString + ")"
+            self.computeString = computeString
+            self.compute = compute
+            
         self.curve = plot_info[0]
         x_axis_label = None
         y_axis_label = None
@@ -48,10 +62,13 @@ class CreateApp():
 
         for n in range(1,len(plot_info)):
             # Update inputs
-
             exec(plot_info[n].strip())
-
-        self.x = np.linspace(xrange[0], xrange[1], N)
+            
+        if reverseAxes:
+            self.x = np.linspace(yrange[0], yrange[1], N)
+        else:
+            self.x = np.linspace(xrange[0], xrange[1], N)
+            
         self.reverseAxes = reverseAxes
         if sliderDict != None:
             self.parameters = sliderDict.keys()
@@ -71,7 +88,10 @@ class CreateApp():
         self.plot.yaxis.axis_label = y_axis_label
         # generate the first curve:
         x = self.x
-        exec(plot_info[0]) #  execute y = f(x, params)
+        if ".py" in plot_info[0]:
+            exec(computeString)
+        else:
+            exec(plot_info[0]) #  execute y = f(x, params)
 
         if type(y) is list:
             if legend == None:
@@ -107,7 +127,12 @@ class CreateApp():
         for n, param in enumerate(self.parameters):
             exec(param + " = "  + 'self.sliderList[n].value')
         # generate the new curve:
-        exec(self.curve) #  execute y = f(x, params)
+        
+        if ".py" in self.curve:
+            compute = self.compute
+            exec(self.computeString) #  execute y = compute(x, params)
+        else:
+            exec(self.curve) #  execute y = f(x, params)
 
         if type(y) is list:
             for n in range(len(y)):
