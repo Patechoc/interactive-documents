@@ -1,4 +1,4 @@
-## Running a DocOnce document with interactive plots
+### Running a DocOnce document with interactive plots
 
 In an interactive Unix shell, set some variables to save typing:
 
@@ -48,4 +48,7 @@ a web browser at the address
 
 
 
+
+Look at the log file `ibplots.dlog` to examine what interactive plots were
+recognized and processed.
 
