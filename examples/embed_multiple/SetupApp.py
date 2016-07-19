@@ -44,7 +44,7 @@ class CreateApp():
             computeString = "y = compute(" + argString + ")"
             self.computeString = computeString
             self.compute = compute
-            
+
         self.curve = plot_info[0]
         x_axis_label = None
         y_axis_label = None
@@ -63,12 +63,12 @@ class CreateApp():
         for n in range(1,len(plot_info)):
             # Update inputs
             exec(plot_info[n].strip())
-            
+
         if reverseAxes:
             self.x = np.linspace(yrange[0], yrange[1], N)
         else:
             self.x = np.linspace(xrange[0], xrange[1], N)
-            
+
         self.reverseAxes = reverseAxes
         if sliderDict != None:
             self.parameters = sliderDict.keys()
@@ -127,7 +127,7 @@ class CreateApp():
         for n, param in enumerate(self.parameters):
             exec(param + " = "  + 'self.sliderList[n].value')
         # generate the new curve:
-        
+
         if ".py" in self.curve:
             compute = self.compute
             exec(self.computeString) #  execute y = compute(x, params)
